@@ -1,0 +1,9 @@
+.header{
+    width: 100%;
+    background: linear-gradient(180deg, rgba(255, 4, 4, 0.458333) 0%, #2C2C2C 99.99%, rgba(255, 255, 255, 0) 100%);
+}
+
+.pokelogo{
+    padding: 0.5rem;
+    margin: auto 5px;
+}

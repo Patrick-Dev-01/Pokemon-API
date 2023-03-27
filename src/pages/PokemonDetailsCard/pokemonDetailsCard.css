@@ -1,0 +1,17 @@
+.detailsCardContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+}
+
+.back{
+    width: 100px;
+    height: 30px;
+}
+
+.pokemonCard{
+    min-width: 400px;
+    height: 500px;
+    border: 2px solid black;
+}
