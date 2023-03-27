@@ -6,12 +6,62 @@
 }
 
 .back{
+    display: flex;
     width: 100px;
     height: 30px;
+    background: transparent;
+    text-transform: capitalize;
+}
+
+.back span{
+    margin-right: 5px;
 }
 
 .pokemonCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     min-width: 400px;
-    height: 500px;
+    height: 600px;
     border: 2px solid black;
+    background: linear-gradient(180deg, #584AF8 0%, #010020 100%);
+}
+
+.pokemonCard h2{
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.pokemonCard h3{
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.pokemonsprite{
+    width: 200px;
+    height: 200px;
+}
+
+.atributtes{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-self: flex-start;
+    margin-left: 15px;
+}
+
+.atributtes ul{
+    margin: 15px 10px;
+    color: #fff;
+}
+
+.atributtes ul li{
+    text-transform: capitalize;
+    color: #fff;
+}
+
+.add_favorites{
+    align-self: center;
+    margin-right: 20px;
 }

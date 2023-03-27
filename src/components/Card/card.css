@@ -1,11 +1,12 @@
 .card{
+    background: linear-gradient(180deg, #8379f9ba 0%, #5b5b5b 100%);
     max-width: 200px;
     height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    box-shadow: 1px 1px 3px 3px rgb(198, 198, 198);
+    box-shadow: 1px 1px 3px 2px rgb(7, 7, 7);
     transition: 0.2s;
 }
 
@@ -26,8 +27,9 @@
 }
 
 .pokemon_name{
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: bold;
     text-transform: capitalize;
+    color: #fff;
 }
 

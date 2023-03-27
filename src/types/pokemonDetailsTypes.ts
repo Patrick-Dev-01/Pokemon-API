@@ -25,9 +25,18 @@ export interface Abilities{
     slot: number;
 }
 
+export interface Stats{
+    base_stat: number;
+    effort: number;
+    stat: {
+        name: string;
+        url: string;
+    }
+}
+
 export interface PokemonDetails{
-    abilties: Abilities[];
-    base_experiencie: number;
+    abilities: Abilities[];
+    base_experience: number;
     forms: Forms[];
     height: number;
     id: number;
@@ -38,5 +47,6 @@ export interface PokemonDetails{
     past_types: any[];
     species: {}
     sprites: Sprites;
+    stats: Stats[];
     weight: number;
 }
