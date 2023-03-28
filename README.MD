@@ -18,5 +18,7 @@
 ### Testing Project
 
 - Clone the project
-- Execute "npm install" on main project directory to install all dependencies
+- Execute "npm install --legacy-peer-deps" on main project directory (the flag after npm install, it's to avoid error during the dependencies instalation).
 - Execute "npm run dev" to run project.
+
+- OBS: you can also use "YARN".
