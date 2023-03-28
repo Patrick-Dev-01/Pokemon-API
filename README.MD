@@ -11,6 +11,7 @@
 - Typescript
 - React JS + Vite JS (compiler)
 - React Hooks
+- Responsive Web Design
 - Context API
 - Pokeapi (Pokemon API)
 - Local Storage
