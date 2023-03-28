@@ -1,9 +1,49 @@
 .header{
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background: linear-gradient(180deg, #FF0000 0%, #2C2C2C 99.99%, rgba(255, 255, 255, 0) 100%);
 }
 
 .pokelogo{
     padding: 0.5rem;
     margin: auto 5px;
+}
+
+.header ul{
+    display: flex;
+    margin-right: 20px;
+}
+
+.header ul li a{
+    color: #fff;
+    margin: auto 10px;
+    font-size: 1.2rem;
+}
+
+.header ul li a:hover{
+    color: #bababa;
+    transition: 0.2s;
+}
+
+/* Mobile Screen */
+@media (max-width: 425px){
+    .header ul{
+        display: flex;
+        margin-right: 0px;
+    }
+    
+    .header ul li a{
+        color: #fff;
+        margin: auto 15px;
+        font-size: 1rem;
+    }
+}
+
+/* Mobile Screen */
+@media (max-width: 320px){
+    .pokelogo{
+        width: 100px;
+    }
 }

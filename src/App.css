@@ -5,7 +5,7 @@
 }
 
 body{
-    background-color: #fcdfcf;
+    background-color: #ffffff;
 }
 
 button{
@@ -19,6 +19,12 @@ a {
 
 ul{
     list-style: none;
+}
+
+@media (max-width: 375px) {
+    *{
+        overflow-x: hidden;
+    }
 }
 
 

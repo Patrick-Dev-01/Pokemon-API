@@ -7,12 +7,14 @@ import { PokemonDetails } from '../../types/pokemonDetailsTypes';
 import { DoubleLeftOutlined, DoubleRightOutlined, SearchOutlined } from "@ant-design/icons";
 
 import "./home.css";
+import { Footer } from '../../components/Footer/Footer';
 
 export function Home(){
     // State to Storage all data return
     const [pokemonData, setPokemonData] = useState<PokemonDetails[]>([]);
     // State to storage pokemon Data and list
     const [pokemonList, setPokemonList] = useState<PokemonDetails[]>([]);
+    const [pokemonName, setPokemonName] = useState<string>('');
     const [url, setUrl] = useState<string>('https://pokeapi.co/api/v2/pokemon?offset=20&limit=20');
     const [nextPage, setNextPage] = useState<string>('');
     const [prevPage, setPrevPage] = useState<string>('');
@@ -20,6 +22,17 @@ export function Home(){
 
     // Execute useEffect every time when "url" state change
     useEffect(() => {
+        getAllPokemons();
+    }, [url]);
+
+    // Search the pokemon on current list
+    function findPokemon(pokemon: string){
+        setPokemonName(pokemon);
+        setPokemonList(pokemonData.filter(p => p.name.includes(pokemon)));
+    }
+
+    // get All Pokemons
+    function getAllPokemons(){
         axios.get<PokemonData>(url).then(response => {
             const pokemons: Pokemon[] = response.data.results;
             const pokemonDetails: PokemonDetails[] = [];
@@ -43,9 +56,9 @@ export function Home(){
                 });
 
                 // Storage the data which will be listed to user
-                setPokemonData(pokemonDetails);
-                // Storage all data return
                 setPokemonList(pokemonDetails);
+                // Storage all data return
+                setPokemonData(pokemonDetails);
             });
             
             // Setting the pagination url
@@ -55,11 +68,24 @@ export function Home(){
         }).catch(err => {
             console.log(err);
         });
-    }, [url]);
+    }
 
-    // Search the pokemon on current list
-    function findPokemon(pokemon: string){
-        setPokemonList(pokemonData.filter(p => p.name.includes(pokemon)));
+    // Get Single pokemon
+    function getPokemon(){
+        if(pokemonName !== ""){
+            axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`).then(response => {
+                // Storage the data which will be listed to user
+                setPokemonList([response.data]);
+                // Storage all data return
+                setPokemonData([response.data]);
+            }).catch(err => {
+                console.log(err);
+            });
+        }
+
+        else{
+            getAllPokemons();
+        }
     }
 
     return(
@@ -67,8 +93,10 @@ export function Home(){
             <Header />
             <main>
                 <div className='search'>
-                    <input type="text" name="search" id="search" onInput={(e) => { findPokemon(e.currentTarget.value) }} />
-                    <button type='submit'>
+                    <input type="text" name="search" id="search" placeholder='Search in current list or fetch by name...' 
+                        onInput={(e) => { findPokemon(e.currentTarget.value) }} 
+                    />
+                    <button type='submit' onClick={getPokemon}>
                         <SearchOutlined />
                     </button>
                 </div>
@@ -92,6 +120,8 @@ export function Home(){
                     </div>
                 </section>
             </main>
+
+            <Footer />
        </div>
     );
 }

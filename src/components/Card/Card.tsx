@@ -10,7 +10,7 @@ interface CardProps{
 export function Card({ pokemon }: CardProps){
     return(
         <div className="card">
-            <Link to={`pokemon/${pokemon.id}`}>
+            <Link to={`/pokemon/${pokemon.id}`}>
                 <img src={pokemon.sprites.front_default} alt={pokemon.name} className="sprite" />
             </Link>
             <p className="pokemon_name">{pokemon.name}</p>

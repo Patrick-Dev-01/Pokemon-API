@@ -1,14 +1,16 @@
 .detailsCardContainer{
     width: 100%;
-    display: flex;
-    justify-content: space-between;
     padding: 1.5rem;
+}
+
+button a{
+    color: #222;
 }
 
 .back{
     display: flex;
     width: 100px;
-    height: 30px;
+    height: 50px;
     background: transparent;
     text-transform: capitalize;
 }
@@ -17,18 +19,25 @@
     margin-right: 5px;
 }
 
+.cardBlock{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .pokemonCard{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    min-width: 400px;
-    height: 600px;
+    width: 350px;
     border: 2px solid black;
-    background: linear-gradient(180deg, #584AF8 0%, #010020 100%);
+    background: linear-gradient(180deg, #8379f9ba 0%, #5b5b5b 100%);
 }
 
 .pokemonCard h2{
+    margin: 10px 0;
     text-transform: uppercase;
     color: #fff;
 }
@@ -39,8 +48,8 @@
 }
 
 .pokemonsprite{
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
 }
 
 .atributtes{
@@ -61,7 +70,40 @@
     color: #fff;
 }
 
-.add_favorites{
+.buttons_favorites{
+    width: 150px;
+    height: 50px;
     align-self: center;
-    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 20px;
+    background: linear-gradient(180deg, #001AFF 0%, #777FCB 100%);
+    border: 3px solid #000000;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.buttons_favorites:hover{
+    background: linear-gradient(180deg, #000f95 0%, #51578d 100%);
+    transition: 0.2s;
+}
+
+.buttons_favorites span{
+    margin: 0px 2px;
+}
+
+/* Mobile Screen */
+@media (max-width: 426px){
+    .cardBlock{
+        flex-direction: column;
+    }
+}
+
+/* Mobile S Screen */
+@media (max-width: 375px){
+    .pokemonCard{
+        width: 250px;
+    }
 }

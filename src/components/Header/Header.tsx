@@ -9,6 +9,11 @@ export function Header(){
             <Link to={"/"}>
                 <img src={pokelogo} alt="PokeAPI" className='pokelogo' />
             </Link>
+
+            <ul>
+                <li><Link to={"/"}>Pokemons</Link></li>
+                <li><Link to={"/favorites"}>Favorites</Link></li>
+            </ul>
         </div>
     )
 }
