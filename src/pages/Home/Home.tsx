@@ -89,39 +89,41 @@ export function Home(){
     }
 
     return(
-       <div className='container'>
-            <Header />
-            <main>
-                <div className='search'>
-                    <input type="text" name="search" id="search" placeholder='Search in current list or fetch by name...' 
-                        onInput={(e) => { findPokemon(e.currentTarget.value) }} 
-                    />
-                    <button type='submit' onClick={getPokemon}>
-                        <SearchOutlined />
-                    </button>
-                </div>
-
-                <section>
-                    <div className="cardlist">
-                        { pokemonList.map(pokemon => (
-                            <Card key={pokemon.id} pokemon={pokemon} />
-                        ))}
-                    </div>                    
-                    <div className='previous_next'>
-                        <button type='button' onClick={() => setUrl(prevPage)}>
-                            <DoubleLeftOutlined />
-                            <span>Previous</span>
-                        </button>
-
-                        <button type='button' onClick={() => setUrl(nextPage)}>
-                            <span>Next</span>
-                            <DoubleRightOutlined />
+        <>
+            <div className='container'>
+                <Header />
+                <main>
+                    <div className='search'>
+                        <input type="text" name="search" id="search" placeholder='Search in current list or fetch by name...' 
+                            onInput={(e) => { findPokemon(e.currentTarget.value) }} 
+                        />
+                        <button type='submit' onClick={getPokemon}>
+                            <SearchOutlined />
                         </button>
                     </div>
-                </section>
-            </main>
 
-            <Footer />
-       </div>
+                    <section>
+                        <div className="cardlist">
+                            { pokemonList.map(pokemon => (
+                                <Card key={pokemon.id} pokemon={pokemon} />
+                            ))}
+                        </div>                    
+                        <div className='previous_next'>
+                            <button type='button' onClick={() => setUrl(prevPage)}>
+                                <DoubleLeftOutlined />
+                                <span>Previous</span>
+                            </button>
+
+                            <button type='button' onClick={() => setUrl(nextPage)}>
+                                <span>Next</span>
+                                <DoubleRightOutlined />
+                            </button>
+                        </div>
+                    </section>
+                </main>
+
+                <Footer />
+            </div>
+        </>
     );
 }

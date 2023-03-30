@@ -1,6 +1,7 @@
 import { SearchOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { Card } from "../../components/Card/Card";
+import { Footer } from "../../components/Footer/Footer";
 import { Header } from "../../components/Header/Header";
 import useFavorites from "../../hooks/useFavorite";
 import { PokemonDetails } from "../../types/pokemonDetailsTypes";
@@ -33,7 +34,8 @@ export function Favorites(){
                         </div>                    
                     </section>
                 </main>
-        </div>
+            </div>
+            <Footer />
         </>
     )
 }

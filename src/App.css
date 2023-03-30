@@ -21,12 +21,6 @@ ul{
     list-style: none;
 }
 
-@media (max-width: 375px) {
-    *{
-        overflow-x: hidden;
-    }
-}
-
 
 
 
