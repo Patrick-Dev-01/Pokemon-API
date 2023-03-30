@@ -54,8 +54,8 @@
     margin-left: 5px;
 }
 
-/* Mobile Screen */
-@media (max-width: 425px){
+/* Mobile Screen L */
+@media (max-width: 426px){
     .footer{
         flex-direction: column;
         height: fit-content;

@@ -94,14 +94,14 @@ button a{
     margin: 0px 2px;
 }
 
-/* Mobile Screen */
+/* Mobile Screen L */
 @media (max-width: 426px){
     .cardBlock{
         flex-direction: column;
     }
 }
 
-/* Mobile S Screen */
+/* Mobile Screen M */
 @media (max-width: 375px){
     .pokemonCard{
         width: 250px;

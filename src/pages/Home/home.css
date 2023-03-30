@@ -68,6 +68,10 @@ main{
     font-size: 0.7rem;
 }
 
+.previous_next button:hover{
+    background: linear-gradient(180deg, #000f95 0%, #51578d 100%);
+}
+
 .previous_next button span{
     margin: 0px 5px;
 }
@@ -93,8 +97,8 @@ main{
     }
 }
 
-/* Mobile Screen */
-@media (max-width: 425px){
+/* Mobile Screen L */
+@media (max-width: 426px){
     .cardlist{
        display: flex;
        flex-direction: column;

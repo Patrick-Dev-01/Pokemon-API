@@ -41,9 +41,16 @@
     }
 }
 
-/* Mobile Screen */
-@media (max-width: 320px){
+/* Mobile Screen L */
+@media (max-width: 426px){
     .pokelogo{
-        width: 100px;
+        width: 120px;
+    }
+}
+
+/* Mobile Screen S */
+@media (max-width: 321px){
+    .header ul li a{
+        font-size: 0.8rem;
     }
 }
