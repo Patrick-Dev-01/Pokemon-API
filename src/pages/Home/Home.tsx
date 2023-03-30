@@ -8,8 +8,10 @@ import { DoubleLeftOutlined, DoubleRightOutlined, SearchOutlined } from "@ant-de
 
 import "./home.css";
 import { Footer } from '../../components/Footer/Footer';
+import { Loading } from '../../shared/Loading/Loading';
 
 export function Home(){
+    const [loading, setLoading] = useState<boolean>(true);
     // State to Storage all data return
     const [pokemonData, setPokemonData] = useState<PokemonDetails[]>([]);
     // State to storage pokemon Data and list
@@ -33,6 +35,8 @@ export function Home(){
 
     // get All Pokemons
     function getAllPokemons(){
+        setLoading(true);
+
         axios.get<PokemonData>(url).then(response => {
             const pokemons: Pokemon[] = response.data.results;
             const pokemonDetails: PokemonDetails[] = [];
@@ -67,11 +71,15 @@ export function Home(){
             setCount(response.data.count);
         }).catch(err => {
             console.log(err);
+        }).finally(() => {
+            setLoading(false);
         });
     }
 
     // Get Single pokemon
     function getPokemon(){
+        setLoading(true);
+
         if(pokemonName !== ""){
             axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`).then(response => {
                 // Storage the data which will be listed to user
@@ -80,6 +88,8 @@ export function Home(){
                 setPokemonData([response.data]);
             }).catch(err => {
                 console.log(err);
+            }).finally(() => {
+                setLoading(false);
             });
         }
 
@@ -93,33 +103,39 @@ export function Home(){
             <div className='container'>
                 <Header />
                 <main>
-                    <div className='search'>
-                        <input type="text" name="search" id="search" placeholder='Search in current list or fetch by name...' 
-                            onInput={(e) => { findPokemon(e.currentTarget.value) }} 
-                        />
-                        <button type='submit' onClick={getPokemon}>
-                            <SearchOutlined />
-                        </button>
-                    </div>
-
-                    <section>
-                        <div className="cardlist">
-                            { pokemonList.map(pokemon => (
-                                <Card key={pokemon.id} pokemon={pokemon} />
-                            ))}
-                        </div>                    
-                        <div className='previous_next'>
-                            <button type='button' onClick={() => setUrl(prevPage)}>
-                                <DoubleLeftOutlined />
-                                <span>Previous</span>
-                            </button>
-
-                            <button type='button' onClick={() => setUrl(nextPage)}>
-                                <span>Next</span>
-                                <DoubleRightOutlined />
+                    { loading ? 
+                       <Loading />
+                    :
+                    <> 
+                        <div className='search'>
+                            <input type="text" name="search" id="search" placeholder='Search in current list or fetch by name...' 
+                                onInput={(e) => { findPokemon(e.currentTarget.value) }} 
+                            />
+                            <button type='submit' onClick={getPokemon}>
+                                <SearchOutlined />
                             </button>
                         </div>
-                    </section>
+
+                        <section>
+                            <div className="cardlist">
+                                { pokemonList.map(pokemon => (
+                                    <Card key={pokemon.id} pokemon={pokemon} />
+                                ))}
+                            </div>                    
+                            <div className='previous_next'>
+                                <button type='button' onClick={() => setUrl(prevPage)}>
+                                    <DoubleLeftOutlined />
+                                    <span>Previous</span>
+                                </button>
+
+                                <button type='button' onClick={() => setUrl(nextPage)}>
+                                    <span>Next</span>
+                                    <DoubleRightOutlined />
+                                </button>
+                            </div>
+                        </section>
+                    </>
+                    }
                 </main>
 
                 <Footer />
